@@ -1,21 +1,27 @@
 {
-  "name": "publish-schemas",
+  "name": "civic-schemas",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "publish": "aws s3 sync schemas s3://$S3_BUCKET/$S3_FOLDER --acl public-read",
+    "publish": "aws s3 sync src/schemas s3://$S3_BUCKET/$S3_FOLDER --acl public-read",
     "publish:dev": "S3_FOLDER=dev S3_BUCKET=dev-schemas.civic.com npm run publish",
     "publish:preprod": "S3_FOLDER=preprod S3_BUCKET=dev-schemas.civic.com npm run publish",
-    "publish:prod": "S3_FOLDER=prod S3_BUCKET=schemas.civic.com npm run publish"
+    "publish:prod": "S3_FOLDER=prod S3_BUCKET=schemas.civic.com npm run publish",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "cross-env NODE_ENV=false jest"
   },
   "dependencies": {
     "@identity.com/credential-commons": "2.0.0-beta.11"
   },
   "keywords": [],
   "author": "William Brooks",
-  "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
     "jest": "^27.1.1"
   }
 }
