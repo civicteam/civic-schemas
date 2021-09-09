@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cvc:PhoneNumber:countryCode",
+  "$id": "http://identity.com/schemas/cvc:PhoneNumber:countryCode",
+  "type": "string",
+  "allOf": [
+    {
+      "$ref": "http://identity.com/schemas/cvc:Phone:countryCode"
+    }
+  ],
+  "credentialItem": true
+}

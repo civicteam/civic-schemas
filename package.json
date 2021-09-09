@@ -1,0 +1,21 @@
+{
+  "name": "publish-schemas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "publish": "aws s3 sync schemas s3://$S3_BUCKET/$S3_FOLDER --acl public-read",
+    "publish:dev": "S3_FOLDER=dev S3_BUCKET=dev-schemas.civic.com npm run publish",
+    "publish:preprod": "S3_FOLDER=preprod S3_BUCKET=dev-schemas.civic.com npm run publish",
+    "publish:prod": "S3_FOLDER=prod S3_BUCKET=schemas.civic.com npm run publish"
+  },
+  "dependencies": {
+    "@identity.com/credential-commons": "2.0.0-beta.11"
+  },
+  "keywords": [],
+  "author": "William Brooks",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.1.1"
+  }
+}

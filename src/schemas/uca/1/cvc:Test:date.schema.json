@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cvc:Test:date",
+  "$id": "http://identity.com/schemas/cvc:Test:date",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "http://identity.com/schemas/cvc:Type:timestamp"
+    }
+  ],
+  "credentialItem": false
+}

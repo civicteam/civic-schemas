@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cvc:PhoneNumber:lineType",
+  "$id": "http://identity.com/schemas/cvc:PhoneNumber:lineType",
+  "type": "string",
+  "allOf": [
+    {
+      "$ref": "http://identity.com/schemas/cvc:Phone:lineType"
+    }
+  ],
+  "credentialItem": true
+}
