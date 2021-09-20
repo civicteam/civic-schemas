@@ -6,6 +6,5 @@
   "items": {
     "$ref": "http://identity.com/schemas/claim-cvc:Test.record-v1"
   },
-  asd,
   "credentialItem": true
 }
