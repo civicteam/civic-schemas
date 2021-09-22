@@ -26,7 +26,7 @@ class SchemaLoader extends CVCSchemaLoader {
     if (!schema) {
       console.log(`@@@@@@@@@@ loading schema REMOTELY identifier: ${identifier} :: ${JSON.stringify(schema)}`);
 
-      schema = super.loadSchema(identifier);
+      schema = await super.loadSchema(identifier);
     }
 
     return schema;
