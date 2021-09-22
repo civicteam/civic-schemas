@@ -30,7 +30,7 @@ class SchemaLoader extends CVCSchemaLoader {
     let schema = this.loadLocalSchema(identifier);
 
     if (!schema) {
-      logger.error(`@@@@@@@@@@ loading schema REMOTELY identifier: ${identifier} :: ${JSON.stringify(schema)}`);
+      this.logger.error(`@@@@@@@@@@ loading schema REMOTELY identifier: ${identifier} :: ${JSON.stringify(schema)}`);
 
       schema = super.loadSchema(identifier);
     }
@@ -40,18 +40,18 @@ class SchemaLoader extends CVCSchemaLoader {
 
   // eslint-disable-next-line class-methods-use-this
   loadLocalSchema(identifier) {
-    logger.error(`@@@@@@@@@@ loading schema for identifier: ${identifier}`);
+    this.logger.error(`@@@@@@@@@@ loading schema for identifier: ${identifier}`);
     const path = getIdentifierPath(identifier);
 
     try {
       // eslint-disable-next-line global-require,import/no-dynamic-require
       const schema = require(`./schemas/${path}.schema.json`);
-      logger.error(`@@@@@@@@@@ loading schema LOCALLY identifier: ${identifier} :: ${JSON.stringify(schema)}`);
+      this.logger.error(`@@@@@@@@@@ loading schema LOCALLY identifier: ${identifier} :: ${JSON.stringify(schema)}`);
 
       return schema;
     } catch (e) {
-      logger.error('@@@@@@@@@@ error loading schema');
-      logger.error(JSON.stringify(e.stack));
+      this.logger.error('@@@@@@@@@@ error loading schema');
+      this.logger.error(JSON.stringify(e.stack));
       return null;
     }
   }
