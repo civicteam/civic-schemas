@@ -4,12 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "publish": "aws s3 sync src/schemas s3://$S3_BUCKET/$S3_FOLDER --acl public-read",
+    "publish": "npm run validate && aws s3 sync src/schemas s3://$S3_BUCKET/$S3_FOLDER --acl public-read",
     "publish:dev": "S3_FOLDER=dev S3_BUCKET=dev-schemas.civic.com npm run publish",
     "publish:preprod": "S3_FOLDER=preprod S3_BUCKET=dev-schemas.civic.com npm run publish",
     "publish:prod": "S3_FOLDER=prod S3_BUCKET=schemas.civic.com npm run publish",
-    "genmeta": "node ./scripts/genmeta.js",
-    "build": "npm run genmeta",
+    "validate": "node scripts/validate.js",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "npm run lint -- --fix",
     "test": "cross-env NODE_ENV=false jest"
@@ -20,6 +19,8 @@
   "keywords": [],
   "author": "William Brooks",
   "devDependencies": {
+    "ajv": "^8.6.3",
+    "ajv-formats": "^2.1.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
