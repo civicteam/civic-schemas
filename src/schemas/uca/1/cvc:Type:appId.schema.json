@@ -3,7 +3,6 @@
   "title": "cvc:Type:appId",
   "$id": "http://identity.com/schemas/cvc:Type:appId",
   "description": "Application Identifier",
-
   "type": "string",
   "credentialItem": false,
   "attestable": false
