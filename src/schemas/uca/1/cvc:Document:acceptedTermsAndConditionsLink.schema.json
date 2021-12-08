@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cvc:Document:acceptedTermsAndConditionsLink",
+  "$id": "http://identity.com/schemas/cvc:Document:acceptedTermsAndConditionsLink",
+  "description": "The accepted terms and conditions document link",
+  "type": "string",
+  "attestable": false,
+  "credentialItem": false
+}
