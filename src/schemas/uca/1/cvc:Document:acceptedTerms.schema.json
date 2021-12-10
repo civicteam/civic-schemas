@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cvc:Document:acceptedTerms",
+  "$id": "http://identity.com/schemas/cvc:Document:acceptedTerms",
+  "description": "The accepted terms",
+  "type": "object",
+  "properties": {
+    "acceptedTermsAndConditionsLink": {
+      "type": "string",
+      "allOf": [
+        {
+          "$ref": "http://identity.com/schemas/cvc:Document:acceptedTermsAndConditionsLink"
+        }
+      ]
+    },
+    "acceptedBiometricsPolicyLink": {
+      "type": "string",
+      "allOf": [
+        {
+          "$ref": "http://identity.com/schemas/cvc:Document:acceptedBiometricsPolicyLink"
+        }
+      ]
+    },
+    "acceptedDeclaration": {
+      "type": "string",
+      "allOf": [
+        {
+          "$ref": "http://identity.com/schemas/cvc:Document:acceptedDeclaration"
+        }
+      ]
+    }
+  },
+  "required": [],
+  "attestable": false,
+  "credentialItem": false
+}
