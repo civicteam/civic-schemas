@@ -3,6 +3,8 @@ const { CVCSchemaLoader } = require('@identity.com/credential-commons');
 const identifierPattern = /(claim|credential|uca|type)-((\w+):[\w.:]+)-v(\d+)/;
 const parseIdentifier = (identifier) => identifier.match(identifierPattern);
 
+const { uca } = require('./schemas/meta.json');
+
 const getIdentifierPath = (identifier) => {
   let identifierPath;
 
@@ -21,6 +23,10 @@ const getIdentifierPath = (identifier) => {
 
 class SchemaLoader extends CVCSchemaLoader {
   async loadSchema(identifier) {
+    if (uca.includes(identifier)) {
+      return null;
+    }
+
     let schema = this.loadLocalSchema(identifier);
 
     if (!schema) {
@@ -33,10 +39,11 @@ class SchemaLoader extends CVCSchemaLoader {
   // eslint-disable-next-line class-methods-use-this
   loadLocalSchema(identifier) {
     const path = getIdentifierPath(identifier);
+    const fullpath = `./schemas/${path}.schema.json`;
 
     try {
       // eslint-disable-next-line global-require,import/no-dynamic-require
-      const schema = require(`./schemas/${path}.schema.json`);
+      const schema = require(fullpath);
 
       return schema;
     } catch (e) {
